@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/app.css">
+    <title>Two screens interaction</title>
+</head>
+
+<body>
+    <canvas id="c"></canvas>
+    <p>
+        <span id="screen1" class="diagram left"></span>
+    </p>
+    <p>
+        <span id="screen2" class="diagram right"></span>
+    </p>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/105/three.min.js"
+        integrity="sha512-uWKImujbh9CwNa8Eey5s8vlHDB4o1HhrVszkympkm5ciYTnUEQv3t4QHU02CUqPtdKTg62FsHo12x63q6u0wmg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- <script src="https://unpkg.com/three-orbitcontrols-ts@0.1.2/dist/index.js"></script> -->
+    <script type="module">
+        // import * as THREE from './build/three.module.js';
+        // import { OrbitControls } from './build/OrbitControls.js';
+
+        // function main() {
+        //     const canvas = document.querySelector('#c');
+        //     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+
+        //     const sceneElements = [];
+        //     function addScene(elem, fn) {
+        //         sceneElements.push({ elem, fn });
+        //     }
+
+        //     function makeScene() {
+        //         const scene = new THREE.Scene();
+
+        //         // const fov = 45;
+        //         // const aspect = 2;  // the canvas default
+        //         // const near = 0.1;
+        //         // const far = 5;
+        //         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        //         const controls = new OrbitControls(camera, canvas);
+
+        //         controls.autoRotate = true;
+        //         controls.autoRotateSpeed = 2;
+        //         controls.enableDamping = true;
+        //         controls.enableZoom = false;
+
+        //         camera.position.set(0, 0, 10);
+        //         camera.lookAt(0, 0, 0);
+        //         controls.update();
+        //         {
+        //             const color = 0xFFFFFF;
+        //             const intensity = 1;
+        //             const light = new THREE.DirectionalLight(color, intensity);
+        //             light.position.set(-1, 2, 4);
+        //             scene.add(light);
+        //         }
+
+        //         return { scene, camera, controls };
+        //     }
+
+        //     {
+        //         const elem = document.querySelector('#screen1');
+        //         const { scene, camera, controls } = makeScene();
+        //         const geometry = new THREE.SphereGeometry(50, 32, 32);
+        //         const texture = new THREE.TextureLoader().load('./images/meadow.jpg');
+        //         texture.wrapS = THREE.RepeatWrapping;
+        //         texture.repeat.x = -1;
+        //         const material = new THREE.MeshBasicMaterial({
+        //             map: texture,
+        //             side: THREE.DoubleSide,
+        //         });
+        //         const mesh = new THREE.Mesh(geometry, material);
+        //         scene.add(mesh);
+        //         addScene(elem, (time, rect) => {
+        //             camera.aspect = rect.width / rect.height;
+        //             camera.updateProjectionMatrix();
+        //             controls.update();
+        //             renderer.render(scene, camera);
+        //         });
+        //     }
+
+        //     {
+        //         const elem = document.querySelector('#screen2');
+        //         const { scene, camera, controls } = makeScene();
+        //         const geometry = new THREE.SphereGeometry(50, 32, 32);
+        //         const texture = new THREE.TextureLoader().load('./images/meadow.jpg');
+        //         texture.wrapS = THREE.RepeatWrapping;
+        //         texture.repeat.x = -1;
+        //         const material = new THREE.MeshBasicMaterial({
+        //             map: texture,
+        //             side: THREE.DoubleSide,
+        //         });
+        //         const mesh = new THREE.Mesh(geometry, material);
+        //         scene.add(mesh);
+        //         addScene(elem, (time, rect) => {
+        //             camera.aspect = rect.width / rect.height;
+        //             camera.updateProjectionMatrix();
+        //             controls.update();
+        //             renderer.render(scene, camera);
+        //         });
+        //     }
+
+        //     function resizeRendererToDisplaySize(renderer) {
+        //         const canvas = renderer.domElement;
+        //         const width = canvas.clientWidth;
+        //         const height = canvas.clientHeight;
+        //         const needResize = canvas.width !== width || canvas.height !== height;
+        //         if (needResize) {
+        //             renderer.setSize(width, height, false);
+        //         }
+        //         return needResize;
+        //     }
+
+        //     const clearColor = new THREE.Color('#000');
+        //     function render(time) {
+        //         time *= 0.001;
+
+        //         resizeRendererToDisplaySize(renderer);
+
+        //         renderer.setScissorTest(false);
+        //         renderer.setClearColor(clearColor, 0);
+        //         renderer.clear(true, true);
+        //         renderer.setScissorTest(true);
+
+        //         for (const { elem, fn } of sceneElements) {
+        //             // get the viewport relative position opf this element
+        //             const rect = elem.getBoundingClientRect();
+        //             const { left, right, top, bottom, width, height } = rect;
+
+        //             const isOffscreen =
+        //                 bottom < 0 ||
+        //                 top > renderer.domElement.clientHeight ||
+        //                 right < 0 ||
+        //                 left > renderer.domElement.clientWidth;
+
+        //             if (!isOffscreen) {
+        //                 const positiveYUpBottom = renderer.domElement.clientHeight - bottom;
+        //                 renderer.setScissor(left, positiveYUpBottom, width, height);
+        //                 renderer.setViewport(left, positiveYUpBottom, width, height);
+
+        //                 fn(time, rect);
+        //             }
+        //         }
+
+        //         requestAnimationFrame(render);
+        //     }
+
+        //     requestAnimationFrame(render);
+        // }
+
+        // main();
+    </script>
+
+    <script type="module" src="./js/app.js"></script>
+</body>
+
+</html>
